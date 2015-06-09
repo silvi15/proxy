@@ -41,6 +41,7 @@ int hijo (int sdtc){
 		perror ("connect");
 	
 	write(sdmotion, buffer, leido);
+	parsear(buffer,sdmotion, sdtc);
 
 
 	while ((leidomotion=read(sdmotion,buffermotion, sizeof buffermotion)) > 0){
