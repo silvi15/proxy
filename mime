@@ -1,0 +1,7 @@
+html=text/html
+php=application/php
+jpg=image/jpeg
+pdf=application/pdf
+text=text/plain
+php=application/x-httpd-php
+png=image/png
