@@ -6,8 +6,8 @@ CFLAGS = -g -Wall
 
 all: proxy
 
-proxy: main.c hijo.c
-	$(CC) $(CFLAGS) -o $@ $^ $(LDLIBS)
+proxy: main.o hijo.o parsear.o recuperarURI.o argumentos.o funcion.o
+	$(CC) -Wall -o $@ $^
 
 clean:
-	rm -fv proxy
+	rm -fv $(TARGETS) *.o *~
