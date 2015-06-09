@@ -26,16 +26,29 @@
 	#define DEFAULT_PORT 80
 	#define PUERTO_CLIENTE "8080" /* Es el puerto en el que escuchará mi cliente intermedio */
 	#define DEBUG 0	 
-
-	typedef struct url_data {
-	  char* url;
-	  char* protocol;
-	  char* hostname;
-	  char* path;
-	  int port;
-	} url_data_t;
-
-	int hijo(int sdtc);
-
 	
+	typedef struct DATOS{
+		char puerto[256];
+		char root[256];
+	} datos; 
+	
+	typedef struct URI{
+		char archivo[256];
+		char extension[256];
+		char version[256];
+		char mime[256];
+		char metodo[256];
+		long length;
+	} uri;
+	
+	datos datosConexion;
+	uri uriConexion;
+	char root[256];
+
+	int hijo (int sdtc);
+	uri recuperarURI(char *);
+	void parsear (char *buffer,int sdtc, int sdmotion);
+	datos argumentos();
+	int funcion(char *path);
+
 #endif
