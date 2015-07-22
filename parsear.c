@@ -53,8 +53,16 @@ void parsear (char *buffer,int sdmotion,int sdtc){
 		}
 	}
 	else{
-	//printf("creo la funcion cron con los argumentos\n");
-	funcion(path);
-	
+	printf("creo la funcion cron");
+	funcion(path,sdtc);
+	estado = "200 OK";
+	leido = snprintf (cabecera, sizeof cabecera,"%s %s\nContent-Type: %s\nContent-Length: %ld\n\n", 
+				  uriConexion.version, estado, uriConexion.mime, uriConexion.length);
+			memset (uriConexion.version, 0, sizeof uriConexion.version);
+	        	write (sdtc, cabecera, leido);
+			memset (cabecera, 0, sizeof cabecera);
+			
 	}
+return 0;
+
 }
