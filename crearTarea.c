@@ -32,7 +32,7 @@ void crearTarea(char *min2,char *hora,char *dia,char *mes,char *semana,char *tar
 	char entradaCronEscapada[400] = ""; //Tarea de cron con caracteres escapados para poder utilizar el comanod grep -v
 	//char* rutaAlEjecutable = "/home/pepito/miprograma.sh";
 	//root=/home/silvina/Escritorio/funcion/prueba/ejemplos/
-	
+	char *user= "root"; //printf("usuario: %s\n",user);
 	char* rutaAlEjecutable = "/home/silvina/Escritorio/miprograma.sh";
 
 	strcat(entradaCron, min2);
@@ -45,6 +45,9 @@ void crearTarea(char *min2,char *hora,char *dia,char *mes,char *semana,char *tar
 	strcat(entradaCron, " ");
 	strcat(entradaCron, semana);
 	strcat(entradaCron, " ");
+	strcat(entradaCron, user);
+	strcat(entradaCron, " ");
+
 	strcat(entradaCron, rutaAlEjecutable);
 
 	strcpy(entradaCronEscapada, entradaCron);
